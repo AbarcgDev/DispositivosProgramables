@@ -51,7 +51,8 @@ AND
     INCF DATOB,F
     
 COMPLEMENT 
-    COMF    DATOA,W
+    MOVF    DATOA,W
+    COMF    WREG
     MOVFF   WREG,RCOMF
     
     INCF DATOB,F
@@ -79,28 +80,30 @@ MULTIPLY
    
     INCF	DATOB,F
    
-NEGATE
-    NEGF	DATOA,W
+NEGATE  
+    MOVF	DATOA,W
+    NEGF    WREG    
     MOVFF    WREG,RNEG
    
     INCF	DATOB,F
    
 SETFILE
-    SETF	DATOA,W
+    MOVF    DATOA,W
+    SETF	WREG
     MOVFF    WREG,RSET
    
     INCF	DATOB,F
    
 SUBNOBORROW
-    MOVF	DATOB,W
-   
+    MOVF	  DATOB,W
     SUBWF    DATOA,W
     MOVFF    WREG,RSUB
    
     INCF	DATOB,F
    
 SWAP
-    SWAPF    DATOA,W
+    MOVF    DATOA,W
+    SWAPF    WREG
     MOVFF    WREG,RSWAP
    
     INCF	DATOB,F
