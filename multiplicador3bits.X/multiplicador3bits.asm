@@ -47,10 +47,7 @@ MUL
     MULWF   DATOB
 
 GETRESULT
-    MOVFF   PRODL,RMUL ;Mueve el LSB del producto a RMUL
-    SWAPF	 PRODH,F    ;Intercambia nibbles en MSB del producto
-    MOVF	PRODH,W	
-    IORWF   RMUL,F	;La compuerta IOR fusiona los bits y obtiene el resultado en 8 bits
+    MOVFF   PRODL,RMUL  ;PRODL puede contener el resultado, en el mayor caso 49, cabe en 8bits
     
 OUTPUT
     MOVFF   RMUL,LATB
